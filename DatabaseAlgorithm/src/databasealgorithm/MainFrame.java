@@ -5,17 +5,27 @@
  */
 package databasealgorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hiddenpants-H
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    public DatabaseAlgorithm databaseAlgorithm = new DatabaseAlgorithm();
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        output.setEditable(false);
     }
 
     /**
@@ -62,6 +72,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         find.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         find.setText("Tìm kiếm");
+        find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findActionPerformed(evt);
+            }
+        });
 
         output.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -137,6 +152,10 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findActionPerformed
+        choose();
+    }//GEN-LAST:event_findActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,37 +190,131 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void choose(){
-        if(timBaoDong.isSelected()){
-            timBaoDong();
-        }else if(timKhoaToiThieu.isSelected()){
-            timKhoaToiThieu();
+
+    public void choose() {
+        try {
+            if (timBaoDong.isSelected()) {
+                timBaoDong();
+            } else if (timKhoaToiThieu.isSelected()) {
+                timKhoaToiThieu();
+            } else if (timPhuKhongDuThua.isSelected()) {
+                timPhuKhongDuThua();
+            } else if (timPhuToiThieu.isSelected()) {
+                timPhuToiThieu();
+            } else if (kiemTraMatMatThongTin.isSelected()) {
+                kiemTraMatMatThongTin();
+            } else{
+                JOptionPane.showMessageDialog(new JFrame(), "Mời bạn chọn chức năng");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "nhập không đúng định dạng dữ liệu!");
         }
-        else if(timPhuKhongDuThua.isSelected()){
-            timPhuKhongDuThua();
+    }
+
+    public void timBaoDong() {
+        String text = input.getText().toUpperCase();
+        String thuocTinh = text.split(", ")[0];
+        String[] temp = text.split(", ");
+        List<String> phuThuocHam = new ArrayList<>();
+        String baoDong;
+
+        for (int i = 1; i < temp.length; i++) {
+            phuThuocHam.add(temp[i]);
         }
-        else if(timPhuToiThieu.isSelected()){
-            timPhuToiThieu();
+        baoDong = databaseAlgorithm.timBaoDong(phuThuocHam, thuocTinh);
+        output.setText(baoDong);
+    }
+
+    public void timKhoaToiThieu() {
+        String text = input.getText().toUpperCase();
+        String thuocTinh = text.split(", ")[0];
+        String[] temp = text.split(", ");
+        List<String> phuThuocHam = new ArrayList<>();
+        String khoaToiThieu;
+
+        for (int i = 1; i < temp.length; i++) {
+            phuThuocHam.add(temp[i]);
         }
-        else if(kiemTraMatMatThongTin.isSelected()){
-            kiemTraMatMatThongTin();
+        khoaToiThieu = databaseAlgorithm.timKhoaToiThieu(phuThuocHam, thuocTinh);
+        output.setText(khoaToiThieu);
+    }
+
+    public void timPhuKhongDuThua() {
+        String text = input.getText().toUpperCase();
+        String[] temp = text.split(", ");
+        List<String> phuThuocHam = new ArrayList<>();
+        List<String> phuKhongDuThua;
+        String khoa = "";
+
+        for (int i = 0; i < temp.length; i++) {
+            phuThuocHam.add(temp[i]);
         }
+        phuKhongDuThua = databaseAlgorithm.timPhuKhongDuThua(phuThuocHam);
+        for (int i = 0; i < phuKhongDuThua.size() - 1; i++) {
+            khoa += phuKhongDuThua.get(i) + ", ";
+        }
+        khoa += phuKhongDuThua.get(phuKhongDuThua.size() - 1);
+
+        output.setText(khoa);
     }
-    public void timBaoDong(){
-        
+
+    public void timPhuToiThieu() {
+        String text = input.getText().toUpperCase();
+        String[] temp = text.split(", ");
+        List<String> phuThuocHam = new ArrayList<>();
+        List<String> phuKhongDuThua;
+        String khoa = "";
+
+        for (int i = 0; i < temp.length; i++) {
+            phuThuocHam.add(temp[i]);
+        }
+        phuKhongDuThua = databaseAlgorithm.timPhuToiThieu(phuThuocHam);
+        for (int i = 0; i < phuKhongDuThua.size() - 1; i++) {
+            khoa += phuKhongDuThua.get(i) + ", ";
+        }
+        khoa += phuKhongDuThua.get(phuKhongDuThua.size() - 1);
+
+        output.setText(khoa);
     }
-    public void timKhoaToiThieu(){
+
+    public void kiemTraMatMatThongTin() {
+        String text = input.getText().toUpperCase();
+        String[] temp = text.split(", ");
+        String tapThuocTinh = temp[0];
+        List<String> phepTach = new ArrayList<>();
+        List<String> phuThuocHam = new ArrayList<>();
+        String khoa = "";
+
+        for (int i = 1; i < temp.length; i++) {
+            if (temp[i].matches("(.*)->(.*)")) {
+                phuThuocHam.add(temp[i]);
+            } else {
+                phepTach.add(temp[i]);
+            }
+        }
+        String[][] bangTest = databaseAlgorithm.kiemTraMatThongTin(tapThuocTinh, phepTach, phuThuocHam);
+        String[] col = new String[tapThuocTinh.length()+1];
+        col[0] = "";
+        String[][] data = new String[tapThuocTinh.length()][phepTach.size()+1];
+        for(int i = 0; i < tapThuocTinh.length(); i++){
+            for(int j = 1; j < phepTach.size()+1; j++){
+                data[i][j] = bangTest[i][j - 1];
+            }
+        }
+        for(int i = 1; i < tapThuocTinh.length() + 1; i++){
+            col[i] = tapThuocTinh.split("")[i - 1];
+        }
+        for(int i = 0; i < phepTach.size(); i++){
+            data[i][0] = phepTach.get(i);
+        }
+        if (databaseAlgorithm.test(bangTest, tapThuocTinh.length(), phepTach.size())) {
+            output.setText("Không mất mát thông tin");
+        }else{
+            output.setText("Mất mát thông tin");
+        }
         
-    }
-    public void timPhuKhongDuThua(){
-        
-    }
-    public void timPhuToiThieu(){
-        
-    }
-    public void kiemTraMatMatThongTin(){
-        
+        DefaultTableModel model = new DefaultTableModel(data,col);
+        this.bangTest.setModel(model);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable bangTest;

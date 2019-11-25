@@ -75,7 +75,7 @@ public class DatabaseAlgorithm {
         return toArr(tapThuocTinhArr);
     }
 
-    public boolean xetTuongDuong(List<String> phuThuocHamF, List<String> phuThuocHamG, String tapThuocTinh) {
+    public boolean xetTuongDuong(List<String> phuThuocHamF, List<String> phuThuocHamG) {
         String tmp[];
         String tmpTail[];
         String baoDong;
@@ -102,11 +102,11 @@ public class DatabaseAlgorithm {
         return true;
     }
 
-    public List<String> timPhuKhongDuThua(List<String> phuThuocHamF, String tapThuocTinh) {
+    public List<String> timPhuKhongDuThua(List<String> phuThuocHamF) {
         List<String> phuKhongDuThua = new ArrayList<>(phuThuocHamF);
         for (int i = 0; i < phuKhongDuThua.size(); i++) {
             phuKhongDuThua.remove(i);
-            if (!xetTuongDuong(phuKhongDuThua, phuThuocHamF, tapThuocTinh)) {
+            if (!xetTuongDuong(phuKhongDuThua, phuThuocHamF)) {
                 phuKhongDuThua.add(i, phuThuocHamF.get(i));
             } else {
                 i--;
@@ -115,10 +115,10 @@ public class DatabaseAlgorithm {
         return phuKhongDuThua;
     }
 
-    public List<String> timPhuToiThieu(List<String> phuThuocHamF, String tapThuocTinh) {
+    public List<String> timPhuToiThieu(List<String> phuThuocHamF) {
         List<String> tmp1 = bienDoiTapF(phuThuocHamF);
-        List<String> tmp2 = loaiThuocTinhThua(tmp1, tapThuocTinh);
-        List<String> tmp3 = timPhuKhongDuThua(tmp2, tapThuocTinh);
+        List<String> tmp2 = loaiThuocTinhThua(tmp1);
+        List<String> tmp3 = timPhuKhongDuThua(tmp2);
         return tmp3;
     }
 
@@ -144,19 +144,19 @@ public class DatabaseAlgorithm {
         return tmp;
     }
 
-    public List<String> loaiThuocTinhThua(List<String> phuThuocHamF, String tapThuocTinh) {
+    public List<String> loaiThuocTinhThua(List<String> phuThuocHamF) {
         List<String> loaiThuocTinhThua = new ArrayList<>();
         String phuThuocHam;
 
         String baoDong;
 
         for (int i = 0; i < phuThuocHamF.size(); i++) {
-            loaiThuocTinhThua.add(i, loaiThuocTinhThua(phuThuocHamF, phuThuocHamF.get(i), tapThuocTinh));
+            loaiThuocTinhThua.add(i, loaiThuocTinhThua(phuThuocHamF, phuThuocHamF.get(i)));
         }
         return loaiThuocTinhThua;
     }
 
-    public String loaiThuocTinhThua(List<String> phuThuocHamF, String phuThuocHam, String tapThuocTinh) {
+    public String loaiThuocTinhThua(List<String> phuThuocHamF, String phuThuocHam) {
         String[] split = phuThuocHam.split("->");
         String[] head = split[0].split("");
         String tail = split[1];
@@ -187,9 +187,8 @@ public class DatabaseAlgorithm {
         return tmp;
     }
 
-    public boolean kiemTraMatThongTin(String R, List<String> Rn, List<String> F) {
+    public String[][] kiemTraMatThongTin(String R, List<String> Rn, List<String> F) {
         String[][] bangTest = new String[R.length()][Rn.size()];
-        boolean re = false;
 
         for (int i = 0; i < R.length(); i++) {
             for (int j = 0; j < Rn.size(); j++) {
@@ -234,18 +233,8 @@ public class DatabaseAlgorithm {
             }
             System.out.println();
         }
-        for (int i = 0; i < R.length(); i++) {
-            for (int j = 0; j < Rn.size(); j++) {
-                if (!bangTest[i][j].split("")[0].endsWith("a")) {
-                    continue;
-                }
-                if (j == Rn.size() - 1) {
-                    re = true;
-                    break;
-                }
-            }
-        }
-        return re;
+        
+        return bangTest;
     }
 
     public boolean kiemTraPTH(String R, String[] bangTest, String[] head, String tail) {
@@ -258,5 +247,20 @@ public class DatabaseAlgorithm {
             return false;
         }
         return true;
+    }
+    public boolean test(String[][] bangTest, int row, int col){
+        boolean re = false;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (!bangTest[i][j].split("")[0].endsWith("a")) {
+                    continue;
+                }
+                if (j == col - 1) {
+                    re = true;
+                    break;
+                }
+            }
+        }
+        return re;
     }
 }
