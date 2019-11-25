@@ -1,0 +1,20 @@
+bao dóng
+AB, A->B, C->D, B->C
+AB, AB->C, BC->AD, D->E, CF->B
+AB, A->D, AB->DE, CE->G, E->H
+
+khóa t?i thi?u
+ABCDE, AB->C, AC->B, BC->DE
+
+ph? không du th?a
+AB->C, D->EF, C->BD
+AC->B, D->EF, B->CD
+A->BC, A->D, CD->E
+A->BCE, A->ABD, CD->E
+
+ph? t?i thi?u
+A->B, ABCD->E, EF->G, ACDF->EG
+A->BC, B->C, A->B, AB->C
+
+ki?m tra m?t mát thông tin
+ABCD, AB, BD, ABC, BCD, A->C, B->C, CD->B, C->D
