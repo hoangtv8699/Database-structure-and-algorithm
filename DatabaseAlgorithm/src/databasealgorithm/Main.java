@@ -20,15 +20,18 @@ public class Main {
 //        phuThuocHam.add("BC->AD");
 //        phuThuocHam.add("D->E");
 //        phuThuocHam.add("CF->B");
-        ////////
+//        //////
 //        phuThuocHam.add("A->D");
 //        phuThuocHam.add("AB->DE");
 //        phuThuocHam.add("CE->G");
 //        phuThuocHam.add("E->H");
-        ///////
-//        String thuocTinh = "AB";
-//        String baoDong = new DatabaseAlgorithm().timBaoDong(phuThuocHam, thuocTinh);
-//        System.out.println(baoDong);
+        phuThuocHam.add("A->B");
+        phuThuocHam.add("C->D");
+        phuThuocHam.add("B->C");
+        /////
+        String thuocTinh = "AB";
+        String baoDong = new DatabaseAlgorithm().timBaoDong(phuThuocHam, thuocTinh);
+        System.out.println(baoDong);
         //////
 //        phuThuocHam.add("AB->C");
 //        phuThuocHam.add("AC->B");
@@ -60,21 +63,20 @@ public class Main {
 //        phuThuocHam.add("EF->G");
 //        phuThuocHam.add("ACDF->EG");
 //        
-        String R = "ABCD";
-        List<String> Rn = new ArrayList<>();
-        Rn.add("AB");
-        Rn.add("BD");
-        Rn.add("ABC");
-        Rn.add("BCD");
-        List<String> F = new ArrayList<>();
-        F.add("A->C");
-        F.add("B->C");
-        F.add("CD->B");
-        F.add("C->D");
-              
-        System.out.println(new DatabaseAlgorithm().kiemTraMatThongTin(R, Rn, F));
+//        String R = "ABCD";
+//        List<String> Rn = new ArrayList<>();
+//        Rn.add("AB");
+//        Rn.add("BD");
+//        Rn.add("ABC");
+//        Rn.add("BCD");
+//        List<String> F = new ArrayList<>();
+//        F.add("A->C");
+//        F.add("B->C");
+//        F.add("CD->B");
+//        F.add("C->D");
+//              
+//        System.out.println(new DatabaseAlgorithm().kiemTraMatThongTin(R, Rn, F));
 
-       
                   
     }
 

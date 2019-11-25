@@ -27,17 +27,111 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        timBaoDong = new javax.swing.JRadioButton();
+        timKhoaToiThieu = new javax.swing.JRadioButton();
+        timPhuKhongDuThua = new javax.swing.JRadioButton();
+        timPhuToiThieu = new javax.swing.JRadioButton();
+        input = new javax.swing.JTextField();
+        find = new javax.swing.JButton();
+        output = new javax.swing.JTextField();
+        kiemTraMatMatThongTin = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bangTest = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
+
+        buttonGroup1.add(timBaoDong);
+        timBaoDong.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        timBaoDong.setText("Tìm bao đóng");
+
+        buttonGroup1.add(timKhoaToiThieu);
+        timKhoaToiThieu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        timKhoaToiThieu.setText("Tìm khóa tối thiểu");
+
+        buttonGroup1.add(timPhuKhongDuThua);
+        timPhuKhongDuThua.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        timPhuKhongDuThua.setText("Tìm phủ không dư thừa");
+
+        buttonGroup1.add(timPhuToiThieu);
+        timPhuToiThieu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        timPhuToiThieu.setText("Tìm phủ tối thiểu");
+
+        input.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        find.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        find.setText("Tìm kiếm");
+
+        output.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        buttonGroup1.add(kiemTraMatMatThongTin);
+        kiemTraMatMatThongTin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        kiemTraMatMatThongTin.setText("Kiểm tra mất mát thông tin");
+
+        bangTest.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(bangTest);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(timPhuKhongDuThua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(timKhoaToiThieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(timBaoDong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(timPhuToiThieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kiemTraMatMatThongTin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(find, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(timBaoDong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(timKhoaToiThieu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(find, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timPhuKhongDuThua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(timPhuToiThieu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(kiemTraMatMatThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,7 +171,49 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public void choose(){
+        if(timBaoDong.isSelected()){
+            timBaoDong();
+        }else if(timKhoaToiThieu.isSelected()){
+            timKhoaToiThieu();
+        }
+        else if(timPhuKhongDuThua.isSelected()){
+            timPhuKhongDuThua();
+        }
+        else if(timPhuToiThieu.isSelected()){
+            timPhuToiThieu();
+        }
+        else if(kiemTraMatMatThongTin.isSelected()){
+            kiemTraMatMatThongTin();
+        }
+    }
+    public void timBaoDong(){
+        
+    }
+    public void timKhoaToiThieu(){
+        
+    }
+    public void timPhuKhongDuThua(){
+        
+    }
+    public void timPhuToiThieu(){
+        
+    }
+    public void kiemTraMatMatThongTin(){
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable bangTest;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton find;
+    private javax.swing.JTextField input;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton kiemTraMatMatThongTin;
+    private javax.swing.JTextField output;
+    private javax.swing.JRadioButton timBaoDong;
+    private javax.swing.JRadioButton timKhoaToiThieu;
+    private javax.swing.JRadioButton timPhuKhongDuThua;
+    private javax.swing.JRadioButton timPhuToiThieu;
     // End of variables declaration//GEN-END:variables
 }

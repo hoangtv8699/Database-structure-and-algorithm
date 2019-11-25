@@ -16,8 +16,10 @@ import java.util.List;
 public class DatabaseAlgorithm {
 
     public String timBaoDong(List<String> phuThuocHam, String thuocTinh) {
-        for (String phuThuocHam1 : phuThuocHam) {
-            thuocTinh = timBaoDong(phuThuocHam1, thuocTinh);
+        for (int i = 0; i < phuThuocHam.size(); i++) {
+            for (String phuThuocHam1 : phuThuocHam) {
+                thuocTinh = timBaoDong(phuThuocHam1, thuocTinh);
+            }
         }
 
         return Sort(thuocTinh.split(""));
@@ -206,17 +208,18 @@ public class DatabaseAlgorithm {
             int tmp = -1;
 
             for (int i = 0; i < Rn.size(); i++) {
-               if(kiemTraPTH(R, bangTest[i], head, tail)){
-                   tmp = i;
-                   break;
-               }
+                if (kiemTraPTH(R, bangTest[i], head, tail)) {
+                    tmp = i;
+                    break;
+                }
             }
-            DONGNHAT : for(int i = 0; i < Rn.size(); i++){
-                if(i == tmp){
+            DONGNHAT:
+            for (int i = 0; i < Rn.size(); i++) {
+                if (i == tmp) {
                     continue;
                 }
-                for(String s : head){
-                    if(!bangTest[i][R.indexOf(s)].equals(bangTest[tmp][R.indexOf(s)])){
+                for (String s : head) {
+                    if (!bangTest[i][R.indexOf(s)].equals(bangTest[tmp][R.indexOf(s)])) {
                         continue DONGNHAT;
                     }
                 }
@@ -233,10 +236,10 @@ public class DatabaseAlgorithm {
         }
         for (int i = 0; i < R.length(); i++) {
             for (int j = 0; j < Rn.size(); j++) {
-                if(!bangTest[i][j].split("")[0].endsWith("a")){
+                if (!bangTest[i][j].split("")[0].endsWith("a")) {
                     continue;
                 }
-                if(j == Rn.size() - 1){
+                if (j == Rn.size() - 1) {
                     re = true;
                     break;
                 }
