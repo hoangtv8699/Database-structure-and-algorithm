@@ -37,15 +37,15 @@ public class Main {
 //        String tapThuocTinh = "ABCDE";
 //        System.out.println(new DatabaseAlgorithm().timKhoaToiThieu(phuThuocHam, tapThuocTinh));
 
-        List<String> phuThuocHamF = new ArrayList<String>();
-        List<String> phuThuocHamG = new ArrayList<String>();
+//        List<String> phuThuocHamF = new ArrayList<String>();
+//        List<String> phuThuocHamG = new ArrayList<String>();
         String tapPhuThuocHam = "ABCDEF";
-        phuThuocHamF.add("AB->C");
-        phuThuocHamF.add("D->EF");
-        phuThuocHamF.add("C->BD");
-        phuThuocHamG.add("AC->B");
-        phuThuocHamG.add("D->EF");
-        phuThuocHamG.add("B->CD");
+//        phuThuocHamF.add("AB->C");
+//        phuThuocHamF.add("D->EF");
+//        phuThuocHamF.add("C->BD");
+//        phuThuocHamG.add("AC->B");
+//        phuThuocHamG.add("D->EF");
+//        phuThuocHamG.add("B->CD");
         //////
 //        phuThuocHamF.add("A->BC");
 //        phuThuocHamF.add("A->D");
@@ -53,6 +53,29 @@ public class Main {
 //        phuThuocHamG.add("A->BCE");
 //        phuThuocHamG.add("A->ABD");
 //        phuThuocHamG.add("CD->E");
-        System.out.println(new DatabaseAlgorithm().xetTuongDuong(phuThuocHamF, phuThuocHamG, tapPhuThuocHam));
+
+
+//        phuThuocHam.add("A->B");
+//        phuThuocHam.add("ABCD->E");
+//        phuThuocHam.add("EF->G");
+//        phuThuocHam.add("ACDF->EG");
+//        
+        String R = "ABCD";
+        List<String> Rn = new ArrayList<>();
+        Rn.add("AB");
+        Rn.add("BD");
+        Rn.add("ABC");
+        Rn.add("BCD");
+        List<String> F = new ArrayList<>();
+        F.add("A->C");
+        F.add("B->C");
+        F.add("CD->B");
+        F.add("C->D");
+              
+        System.out.println(new DatabaseAlgorithm().kiemTraMatThongTin(R, Rn, F));
+
+       
+                  
     }
+
 }
