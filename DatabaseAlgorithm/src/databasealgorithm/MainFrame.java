@@ -207,6 +207,7 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(new JFrame(), "Mời bạn chọn chức năng");
             }
         } catch (Exception e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(new JFrame(), "nhập không đúng định dạng dữ liệu!");
         }
     }
@@ -292,28 +293,29 @@ public class MainFrame extends javax.swing.JFrame {
                 phepTach.add(temp[i]);
             }
         }
+        phuThuocHam = databaseAlgorithm.timPhuToiThieu(phuThuocHam);
         String[][] bangTest = databaseAlgorithm.kiemTraMatThongTin(tapThuocTinh, phepTach, phuThuocHam);
-        String[] col = new String[tapThuocTinh.length()+1];
+        String[] col = new String[tapThuocTinh.length()];
         col[0] = "";
-        String[][] data = new String[tapThuocTinh.length()][phepTach.size()+1];
+//        String[][] data = new String[tapThuocTinh.length()][phepTach.size()+1];
+//        for(int i = 0; i < tapThuocTinh.length(); i++){
+//            for(int j = 1; j < phepTach.size()+1; j++){
+//                data[i][j] = bangTest[i][j - 1];
+//            }
+//        }
         for(int i = 0; i < tapThuocTinh.length(); i++){
-            for(int j = 1; j < phepTach.size()+1; j++){
-                data[i][j] = bangTest[i][j - 1];
-            }
+            col[i] = tapThuocTinh.split("")[i];
         }
-        for(int i = 1; i < tapThuocTinh.length() + 1; i++){
-            col[i] = tapThuocTinh.split("")[i - 1];
-        }
-        for(int i = 0; i < phepTach.size(); i++){
-            data[i][0] = phepTach.get(i);
-        }
-        if (databaseAlgorithm.test(bangTest, tapThuocTinh.length(), phepTach.size())) {
+//        for(int i = 0; i < phepTach.size(); i++){
+//            data[i][0] = phepTach.get(i);
+//        }
+        if (databaseAlgorithm.test(bangTest, phepTach.size(), tapThuocTinh.length())) {
             output.setText("Không mất mát thông tin");
         }else{
             output.setText("Mất mát thông tin");
         }
         
-        DefaultTableModel model = new DefaultTableModel(data,col);
+        DefaultTableModel model = new DefaultTableModel(bangTest,col);
         this.bangTest.setModel(model);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
