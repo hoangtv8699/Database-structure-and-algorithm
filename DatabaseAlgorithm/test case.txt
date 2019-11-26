@@ -1,12 +1,12 @@
-bao d髇g
+bao d贸ng
 AB, A->B, C->D, B->C
 AB, AB->C, BC->AD, D->E, CF->B
 AB, A->D, AB->DE, CE->G, E->H
 
-kh骯 t?i thi?u
+kh贸a t?i thi?u
 ABCDE, AB->C, AC->B, BC->DE
 
-ph? kh鬾g du th?a
+ph? kh么ng du th?a
 AB->C, D->EF, C->BD
 AC->B, D->EF, B->CD
 A->BC, A->D, CD->E
@@ -16,5 +16,6 @@ ph? t?i thi?u
 A->B, ABCD->E, EF->G, ACDF->EG
 A->BC, B->C, A->B, AB->C
 
-ki?m tra m?t m醫 th鬾g tin
+ki?m tra m?t m谩t th么ng tin
 ABCD, AB, BD, ABC, BCD, A->C, B->C, CD->B, C->D
+abcde, abc, ad, de, ab->c, c->e, c->d, ab->e
